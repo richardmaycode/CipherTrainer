@@ -11,6 +11,7 @@
 		932468EB296B601500B9CF30 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932468EA296B601500B9CF30 /* ContentView.swift */; };
 		932468ED296B601600B9CF30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932468EC296B601600B9CF30 /* Assets.xcassets */; };
 		932468F0296B601600B9CF30 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932468EF296B601600B9CF30 /* Preview Assets.xcassets */; };
+		932468FE296BAADE00B9CF30 /* CipherShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932468FD296BAADE00B9CF30 /* CipherShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		932468EA296B601500B9CF30 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		932468EC296B601600B9CF30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		932468EF296B601600B9CF30 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		932468FD296BAADE00B9CF30 /* CipherShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CipherShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		932468E7296B601500B9CF30 /* CipherTrainer */ = {
 			isa = PBXGroup;
 			children = (
+				932468F6296B605A00B9CF30 /* Views */,
 				932468E8296B601500B9CF30 /* CipherTrainerApp.swift */,
 				932468EA296B601500B9CF30 /* ContentView.swift */,
 				932468EC296B601600B9CF30 /* Assets.xcassets */,
@@ -65,6 +68,22 @@
 				932468EF296B601600B9CF30 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		932468F6296B605A00B9CF30 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				932468F7296B606400B9CF30 /* CiperShapes */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		932468F7296B606400B9CF30 /* CiperShapes */ = {
+			isa = PBXGroup;
+			children = (
+				932468FD296BAADE00B9CF30 /* CipherShape.swift */,
+			);
+			path = CiperShapes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				932468FE296BAADE00B9CF30 /* CipherShape.swift in Sources */,
 				932468EB296B601500B9CF30 /* ContentView.swift in Sources */,
 				932468E9296B601500B9CF30 /* CipherTrainerApp.swift in Sources */,
 			);
