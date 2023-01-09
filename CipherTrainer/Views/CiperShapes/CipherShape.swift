@@ -7,20 +7,6 @@
 
 import SwiftUI
 
-enum num: Int {
-    case one = 1
-    case two = 2
-    case three = 3
-    case four = 4
-    case five = 5
-    case six = 6
-    case seven = 7
-    case eight = 8
-    case nine = 9
-    case ten = 10
-}
-
-
 struct CipherShape: Shape {
     
     let numbers: [Int]
@@ -200,46 +186,6 @@ struct CipherShape: Shape {
                 break
             }
         }
-        
-        
-        
-//        switch number {
-//        case 1:
-//            path.move(to: CGPoint(x: rect.midX, y: rect.minY))
-//            path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
-//
-//        case 2:
-//            path.move(to: CGPoint(x: rect.midX, y: rect.minY + adjustment))
-//            path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY + adjustment))
-//        case 3:
-//            path.move(to: CGPoint(x: rect.midX, y: rect.minY))
-//            path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY + adjustment))
-//        case 4:
-//            path.move(to: CGPoint(x: rect.midX, y: rect.minY + rect.maxY * 0.37))
-//            path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
-//        case 5:
-//            path.move(to: CGPoint(x: rect.midX, y: rect.minY + adjustment))
-//            path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
-//            path.addLine(to: CGPoint(x: rect.midX, y: rect.minY))
-//        case 6:
-//            path.move(to: CGPoint(x: rect.maxX, y: rect.minY))
-//            path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY + adjustment))
-//        case 7:
-//            path.move(to: CGPoint(x: rect.midX, y: rect.minY))
-//            path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
-//            path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY + adjustment))
-//        case 8:
-//            path.move(to: CGPoint(x: rect.midX, y: rect.minY + adjustment))
-//            path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY + adjustment))
-//            path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
-//        case 9:
-//            path.move(to: CGPoint(x: rect.midX, y: rect.minY + adjustment))
-//            path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY + adjustment))
-//            path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
-//            path.addLine(to: CGPoint(x: rect.midX, y: rect.minY))
-//        default:
-//            break
-//        }
         
         
         return path
