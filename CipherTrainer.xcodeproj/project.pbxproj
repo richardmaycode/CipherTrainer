@@ -18,6 +18,7 @@
 		93246907296CA07C00B9CF30 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93246906296CA07C00B9CF30 /* AppTabView.swift */; };
 		93246909296CA49300B9CF30 /* ReferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93246908296CA49300B9CF30 /* ReferenceView.swift */; };
 		9324690C296CB64C00B9CF30 /* CTNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9324690B296CB64C00B9CF30 /* CTNumbers.swift */; };
+		9324690E296DCD2400B9CF30 /* CipherStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9324690D296DCD2400B9CF30 /* CipherStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		93246906296CA07C00B9CF30 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		93246908296CA49300B9CF30 /* ReferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceView.swift; sourceTree = "<group>"; };
 		9324690B296CB64C00B9CF30 /* CTNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTNumbers.swift; sourceTree = "<group>"; };
+		9324690D296DCD2400B9CF30 /* CipherStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CipherStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				93246904296CA01F00B9CF30 /* CipherBuilder.swift */,
 				93246906296CA07C00B9CF30 /* AppTabView.swift */,
 				93246908296CA49300B9CF30 /* ReferenceView.swift */,
+				9324690D296DCD2400B9CF30 /* CipherStack.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				9324690C296CB64C00B9CF30 /* CTNumbers.swift in Sources */,
 				932468EB296B601500B9CF30 /* ContentView.swift in Sources */,
 				932468E9296B601500B9CF30 /* CipherTrainerApp.swift in Sources */,
+				9324690E296DCD2400B9CF30 /* CipherStack.swift in Sources */,
 				93246903296C7EC700B9CF30 /* String+Ext.swift in Sources */,
 				93246907296CA07C00B9CF30 /* AppTabView.swift in Sources */,
 				93246905296CA01F00B9CF30 /* CipherBuilder.swift in Sources */,

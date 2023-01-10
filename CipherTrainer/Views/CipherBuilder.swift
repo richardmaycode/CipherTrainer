@@ -9,10 +9,14 @@ import SwiftUI
 
 struct CipherBuilder: View {
     
+    @Environment(\.displayScale) var displayScale
+    
     @State var number = 0
     @State var requestText: String = ""
     @State var trimAmount: CGFloat = 1.0
     @State var redrawing: Bool = false
+    @State var rendered: Bool = false
+    @State var renderedImage: Image = Image(systemName: "photo")
     
     var body: some View {
         NavigationStack {
@@ -35,9 +39,11 @@ struct CipherBuilder: View {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(.white)
                         .shadow(radius: 4)
+
                 }
+
                 
-                Spacer()
+                
                 
                 TextField("Number", text: $requestText)
                     .keyboardType(.numberPad)
@@ -51,32 +57,59 @@ struct CipherBuilder: View {
                     .padding(.horizontal)
                     .multilineTextAlignment(.center)
                 
-                Button {
-                    guard requestText.isNumber else { return }
-                    
-                    redrawing = true
-                    trimAmount = .zero
-                    
-                    number = Int(requestText) ?? 0
-                    
-                    redrawing = false
-                    withAnimation(.linear(duration: 1.50)) {
-                        trimAmount = 1.0
-                    }
-                    
-                    
-                } label: {
-                    Text("Draw Cipher")
-                        .font(.title)
-                        .frame(maxWidth: .infinity, minHeight: 40)
-                    
-                }
-                .buttonStyle(.borderedProminent)
-                .padding([.horizontal, .bottom])
+                Spacer()
+                
             }
             .navigationTitle("Cipher Builder")
+            .toolbar {
+                ToolbarItem(placement: .keyboard) {
+                    Button {
+                        guard requestText.isNumber else { return }
+                        
+                        redrawing = true
+                        rendered = false
+                        trimAmount = .zero
+                        
+                        number = Int(requestText) ?? 0
+                        
+                        render()
+                        
+                        redrawing = false
+                        rendered = true
+                        
+                        withAnimation(.linear(duration: 1.50)) {
+                            trimAmount = 1.0
+                        }
+                        
+                        
+                    } label: {
+                        Text("Draw Cipher")
+                    }
+                }
+                
+                ToolbarItem(placement: .confirmationAction) {
+                    
+                    ShareLink(item: renderedImage, message: Text("Check out the chipher for \(number)"), preview: SharePreview(Text("Shared Cipher"), image: renderedImage))
+                        .disabled(!rendered)
+                    
+                    
+                }
+            }
         }
     }
+    
+    @MainActor func render() {
+        let renderer = ImageRenderer(content: CipherStack(number: number))
+        
+        
+        // make sure and use the correct display scale for this device
+        renderer.scale = displayScale
+        
+        if let uiImage = renderer.uiImage {
+            renderedImage = Image(uiImage: uiImage)
+        }
+    }
+
 }
 
 struct CipherBuilder_Previews: PreviewProvider {
