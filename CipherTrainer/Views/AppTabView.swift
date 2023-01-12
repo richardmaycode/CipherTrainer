@@ -53,7 +53,7 @@ struct AppTabView: View {
                     Label(Tab.reference.label, systemImage: Tab.reference.icon)
                 }
             
-            Text("Game")
+            LoadingSymbol()
                 .tabItem {
                     Label(Tab.game.label, systemImage: Tab.game.icon)
                 }
