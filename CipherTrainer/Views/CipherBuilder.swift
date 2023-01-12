@@ -17,6 +17,7 @@ struct CipherBuilder: View {
     @State var redrawing: Bool = false
     @State var rendered: Bool = false
     @State var renderedImage: Image = Image(systemName: "photo")
+    @FocusState var numberIsFocused: Bool
     
     var body: some View {
         NavigationStack {
@@ -47,7 +48,7 @@ struct CipherBuilder: View {
                 
                 TextField("Number", text: $requestText)
                     .keyboardType(.numberPad)
-                    .scrollDismissesKeyboard(.immediately)
+                    .focused($numberIsFocused)
                     .padding()
                     .background {
                         RoundedRectangle(cornerRadius: 5)
@@ -56,6 +57,11 @@ struct CipherBuilder: View {
                     }
                     .padding(.horizontal)
                     .multilineTextAlignment(.center)
+                    .onReceive(NotificationCenter.default.publisher(for: UITextField.textDidBeginEditingNotification)) { obj in
+                        if let textField = obj.object as? UITextField {
+                            textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
+                        }
+                    }
                 
                 Spacer()
                 
@@ -77,9 +83,12 @@ struct CipherBuilder: View {
                         redrawing = false
                         rendered = true
                         
+                        numberIsFocused = false
+                        
                         withAnimation(.linear(duration: 1.50)) {
                             trimAmount = 1.0
                         }
+                        
                         
                         
                     } label: {
