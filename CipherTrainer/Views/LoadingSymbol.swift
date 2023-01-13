@@ -63,7 +63,7 @@ struct LoadingSymbol: View {
         }
         
         .onAppear {
-            withAnimation(.linear(duration: 3).repeatForever(autoreverses: false)) {
+            withAnimation(.spring(response: 1, dampingFraction: 1.4).repeatForever(autoreverses: false)) {
                 rotation = 360
             }
         }

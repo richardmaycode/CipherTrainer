@@ -13,6 +13,9 @@ struct GameView: View {
     @State var previousGames: [Int] = [Int]()
     @State var guessText: String = ""
     
+    let promptTitle: String = "9232"
+    let promptSubtitle: String = "Pick the matching Cipher"
+    
     let twoColumns: [GridItem] = Array(repeating: GridItem(.flexible()), count: 2)
     
     var body: some View {
@@ -21,7 +24,7 @@ struct GameView: View {
                 if gameStarted {
                     
                     Text("Question 1")
-                        .font(.largeTitle)
+                        .font(.system(.largeTitle, design: .rounded))
                         
                     
                     LazyVGrid(columns: twoColumns, spacing: 50) {
@@ -41,91 +44,14 @@ struct GameView: View {
                     
                     
                     Spacer()
-                    VStack(spacing: 10) {
-                        Text("Pick the matching cipher:")
-                            .font(.system(.title3, design: .rounded))
-                        
-                        Text("9232")
-                            .font(.system(.largeTitle, design: .rounded, weight: .heavy))
-                            .padding()
-                            .background {
-                                RoundedRectangle(cornerRadius: 5, style: .continuous)
-                                    .fill(.tertiary)
-                                    
-                            }
-                    }
-                    
-                    
+                    promptBlock
                     Spacer()
                     
-//                    Text(guessText)
-//                        .frame(maxWidth: .infinity, minHeight: 40)
-//
-//                        .overlay {
-//                            RoundedRectangle(cornerRadius: 8)
-//                                .stroke(.gray, lineWidth: 4)
-//                        }
-//                        .padding(.horizontal, 40)
+
                     
                     
                     
-//                    Grid(horizontalSpacing: 20, verticalSpacing: 20) {
-//                        GridRow {
-//                            Button(action: { }) {
-//                                Text("1")
-//                            }
-//                            Button(action: { }) {
-//                                Text("2")
-//                            }
-//                            Button(action: { }) {
-//                                Text("3")
-//                            }
-//                        }
-//
-//
-//                        GridRow {
-//                            Button(action: { }) {
-//                                Text("4")
-//                            }
-//                            Button(action: { }) {
-//                                Text("5")
-//                            }
-//                            Button(action: { }) {
-//                                Text("6")
-//                            }
-//                        }
-//
-//                        GridRow {
-//                            Button(action: { }) {
-//                                Text("7")
-//                            }
-//                            Button(action: { }) {
-//                                Text("8")
-//                            }
-//                            Button(action: { }) {
-//                                Text("9")
-//                            }
-//                        }
-//
-//                        GridRow {
-//
-//                            Text("")
-//
-//                            Button(action: { }) {
-//                                Text("0")
-//                            }
-//
-//
-//                            Button(action: { }) {
-//                                Image(systemName: "delete.left")
-//                            }
-//                            .buttonStyle(.plain)
-//
-//                        }
-//                    }
-//                    .font(.largeTitle)
-//                    .buttonStyle(.borderedProminent)
-//                    .padding(.vertical)
+
                     
                     Button(action: { }) {
                         Text("Submit")
@@ -167,27 +93,21 @@ struct GameView: View {
                 if gameStarted {
                     ToolbarItem(placement: .principal) {
                         VStack(spacing: 2) {
-                            Text("000")
+                            Text("0 / 10")
                                 .font(.system(.title2, design: .rounded, weight: .heavy))
                             
-                            RoundedRectangle(cornerRadius: 2)
-                                .frame(maxWidth: 50, maxHeight: 3)
+                           
                         }
                     }
                     
-                    ToolbarItem(placement: .primaryAction) {
-                        Text("0 / 10")
-                    }
+                    
                     
                     ToolbarItem(placement: .cancellationAction) {
-                       
-                        Menu {
-                            Button(action: { gameStarted = false }) {
-                                Label("End Game", systemImage: "xmark.octagon")
-                            }
-                        } label: {
-                                Label("Options", systemImage: "ellipsis")
-                            }
+                        Button(action: { gameStarted = false }) {
+                            Label("End Game", systemImage: "arrowshape.left")
+                                .font(.system(.title2, design: .rounded, weight: .heavy))
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
@@ -236,6 +156,23 @@ struct GameView: View {
                     RoundedRectangle(cornerRadius: 5)
                         .stroke(picked ? .teal : .gray, style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
                         .offset(x: 3, y: 3)
+                }
+        }
+    }
+    
+    
+    var promptBlock: some View {
+        VStack(spacing: 10) {
+            Text(promptSubtitle)
+                .font(.system(.title3, design: .rounded))
+            
+            Text(promptTitle)
+                .font(.system(.largeTitle, design: .rounded, weight: .heavy))
+                .padding()
+                .background {
+                    RoundedRectangle(cornerRadius: 5, style: .continuous)
+                        .fill(.tertiary)
+                    
                 }
         }
     }
