@@ -11,6 +11,7 @@ struct QuadChiperQuestion: View {
     
     let answer: Int
     let options: [Int]
+    @Binding var guess: Int?
     
     @State var selectedIndex: Int = 100
     
@@ -25,8 +26,10 @@ struct QuadChiperQuestion: View {
                         .onTapGesture {
                             if index == selectedIndex {
                                 selectedIndex = 100
+                                guess = nil
                             } else {
                                 selectedIndex = index
+                                guess = answer
                             }
                         }
                 }
@@ -97,6 +100,6 @@ struct QuadChiperQuestion: View {
 
 struct QuadChiperQuestion_Previews: PreviewProvider {
     static var previews: some View {
-        QuadChiperQuestion(answer: 5423, options: [5423, 7810, 9132, 2538])
+        QuadChiperQuestion(answer: 5423, options: [5423, 7810, 9132, 2538], guess: .constant(nil))
     }
 }

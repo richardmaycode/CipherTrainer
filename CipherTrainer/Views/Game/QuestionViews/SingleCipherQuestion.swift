@@ -12,6 +12,8 @@ struct SingleCipherQuestion: View {
     let answer: Int
     let options: [Int]
     
+    @Binding var guess: Int?
+    
     var body: some View {
         VStack {
             CipherShape(numbers: answer.digits())
@@ -55,6 +57,9 @@ struct SingleCipherQuestion: View {
                                 }
                         }
                         .padding(.horizontal, 40)
+                        .onTapGesture {
+                            guess = option
+                        }
                 }
             }
             .padding(.top, 30)
@@ -64,6 +69,6 @@ struct SingleCipherQuestion: View {
 
 struct SingleCipherQuestion_Previews: PreviewProvider {
     static var previews: some View {
-        SingleCipherQuestion(answer: 7593, options: [9823, 7593, 1034, 4827])
+        SingleCipherQuestion(answer: 7593, options: [9823, 7593, 1034, 4827], guess: .constant(nil))
     }
 }

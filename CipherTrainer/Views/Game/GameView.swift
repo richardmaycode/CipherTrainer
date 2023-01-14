@@ -13,11 +13,12 @@ enum QuestionType: Int, Identifiable {
     var id: Int { self.rawValue }
 }
 
-struct GameQuestion {
+struct GameQuestion: Identifiable {
     let id: UUID = UUID()
     let questionType: QuestionType
     let options: [Int]
     let answer: Int
+    var outcome: Bool?
 }
 
 
@@ -29,7 +30,10 @@ struct GameView: View {
     @State var changingQuestions: Bool = false
     
     @State var questions: [GameQuestion] = [GameQuestion]()
+    @State var outcomes: [Bool] = [Bool]()
+    @State var guess: Int? = nil
     @State var loading: Bool = false
+    @State var showingScores: Bool = false
         
     var body: some View {
         NavigationStack {
@@ -40,9 +44,9 @@ struct GameView: View {
                             let currentQuestion = questions[currentQuestionIndex]
                             switch currentQuestion.questionType {
                             case .quadSelectCipher:
-                                QuadChiperQuestion(answer: currentQuestion.answer, options: currentQuestion.options)
+                                QuadChiperQuestion(answer: currentQuestion.answer, options: currentQuestion.options, guess: $guess)
                             case .singleSelectCipher:
-                                SingleCipherQuestion(answer: currentQuestion.answer, options: currentQuestion.options)
+                                SingleCipherQuestion(answer: currentQuestion.answer, options: currentQuestion.options, guess: $guess)
                             default:
                                 Text("Weird Format")
                             }
@@ -90,12 +94,16 @@ struct GameView: View {
                 .toolbar {
                     if gameStarted && !loading {
                         ToolbarItem(placement: .principal) {
-                            VStack(spacing: 2) {
+                            Button {
+                                showingScores = true
+                            } label: {
                                 Text("\(currentQuestionIndex + 1) / \(questions.count)")
                                     .font(.system(.title2, design: .rounded, weight: .heavy))
-                                
-                               
                             }
+
+
+                            
+                            
                         }
 
                         ToolbarItem(placement: .cancellationAction) {
@@ -109,6 +117,18 @@ struct GameView: View {
                 }
                 .toolbarBackground(Color.pink, for: .navigationBar)
                 .toolbar(.visible, for: .navigationBar)
+                .sheet(isPresented: $showingScores) {
+                    List {
+                        ForEach(Array(questions.enumerated()), id: \.offset) { index, question in
+                            
+                            HStack {
+                                Text("Quesiton \(index + 1)")
+                                Spacer()
+                                Text(question.outcome == nil ? "Pending" : question.outcome ?? false ? "Correct" : "Incorrect")
+                            }
+                        }
+                    }
+                }
                 if loading {
                     LoadingSymbol()
                 }
@@ -125,7 +145,7 @@ struct GameView: View {
             var options = [Int.random(in: 1...9999), Int.random(in: 1...9999), Int.random(in: 1...9999), Int.random(in: 1...9999)]
             options.shuffle()
             
-            let round = GameQuestion(questionType: Bool.random() ? .quadSelectCipher : .singleSelectCipher, options: options, answer: options.randomElement()!)
+            let round = GameQuestion(questionType: Bool.random() ? .quadSelectCipher : .singleSelectCipher, options: options, answer: options.randomElement()!, outcome: nil)
             
             rounds.append(round)
         }
@@ -140,6 +160,9 @@ struct GameView: View {
     
     func scoreRound() {
         changingQuestions = true
+        guard let guess = guess else { return }
+        
+        questions[currentQuestionIndex].outcome =  guess == questions[currentQuestionIndex].answer
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) {
             if (currentQuestionIndex + 1) == questions.count {
