@@ -24,6 +24,7 @@
 		932469142970AA1E00B9CF30 /* MatchedGeoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932469132970AA1E00B9CF30 /* MatchedGeoTest.swift */; };
 		932469182970F40B00B9CF30 /* QuadChiperQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932469172970F40B00B9CF30 /* QuadChiperQuestion.swift */; };
 		9324691A2970F43400B9CF30 /* KeyPadGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932469192970F43400B9CF30 /* KeyPadGrid.swift */; };
+		9324691C2971B98B00B9CF30 /* SingleCipherQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9324691B2971B98B00B9CF30 /* SingleCipherQuestion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		932469132970AA1E00B9CF30 /* MatchedGeoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedGeoTest.swift; sourceTree = "<group>"; };
 		932469172970F40B00B9CF30 /* QuadChiperQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadChiperQuestion.swift; sourceTree = "<group>"; };
 		932469192970F43400B9CF30 /* KeyPadGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPadGrid.swift; sourceTree = "<group>"; };
+		9324691B2971B98B00B9CF30 /* SingleCipherQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCipherQuestion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				932469172970F40B00B9CF30 /* QuadChiperQuestion.swift */,
+				9324691B2971B98B00B9CF30 /* SingleCipherQuestion.swift */,
 			);
 			path = QuestionViews;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				93246910296F0FCC00B9CF30 /* GameView.swift in Sources */,
 				932469182970F40B00B9CF30 /* QuadChiperQuestion.swift in Sources */,
 				9324690E296DCD2400B9CF30 /* CipherStack.swift in Sources */,
+				9324691C2971B98B00B9CF30 /* SingleCipherQuestion.swift in Sources */,
 				932469142970AA1E00B9CF30 /* MatchedGeoTest.swift in Sources */,
 				93246903296C7EC700B9CF30 /* String+Ext.swift in Sources */,
 				93246907296CA07C00B9CF30 /* AppTabView.swift in Sources */,
