@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum Tab: Int, Identifiable, Hashable, CaseIterable {
+enum TabOption: Int, Identifiable, Hashable, CaseIterable {
     case builder, reference, game
     
     var id: Int { self.rawValue }
@@ -40,29 +40,33 @@ enum Tab: Int, Identifiable, Hashable, CaseIterable {
 
 struct AppTabView: View {
     
-    @State var selection: Tab = .builder
+    @Binding var selection: TabOption
     
     var body: some View {
         TabView(selection: $selection) {
             CipherBuilder()
                 .tabItem {
-                    Label(Tab.builder.label, systemImage: Tab.builder.icon)
+                    Label(TabOption.builder.label, systemImage: TabOption.builder.icon)
                 }
+                .tag(TabOption.builder)
+            
             ReferenceView()
                 .tabItem {
-                    Label(Tab.reference.label, systemImage: Tab.reference.icon)
+                    Label(TabOption.reference.label, systemImage: TabOption.reference.icon)
                 }
+                .tag(TabOption.reference)
             
             GameView()
                 .tabItem {
-                    Label(Tab.game.label, systemImage: Tab.game.icon)
+                    Label(TabOption.game.label, systemImage: TabOption.game.icon)
                 }
+                .tag(TabOption.game)
         }
     }
 }
 
 struct AppTabView_Previews: PreviewProvider {
     static var previews: some View {
-        AppTabView()
+        AppTabView(selection: .constant(.builder))
     }
 }

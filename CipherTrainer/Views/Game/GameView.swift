@@ -85,6 +85,7 @@ struct GameView: View {
                         }
                         .buttonStyle(.borderedProminent)
                         .padding(.horizontal, 30)
+                        .padding([.bottom], 10)
                     }
 
                     
@@ -118,16 +119,30 @@ struct GameView: View {
                 .toolbarBackground(Color.pink, for: .navigationBar)
                 .toolbar(.visible, for: .navigationBar)
                 .sheet(isPresented: $showingScores) {
-                    List {
-                        ForEach(Array(questions.enumerated()), id: \.offset) { index, question in
-                            
-                            HStack {
-                                Text("Quesiton \(index + 1)")
-                                Spacer()
-                                Text(question.outcome == nil ? "Pending" : question.outcome ?? false ? "Correct" : "Incorrect")
+                    NavigationStack {
+                        List {
+                            ForEach(Array(questions.enumerated()), id: \.offset) { index, question in
+                                
+                                HStack {
+                                    Text("Quesiton \(index + 1)")
+                                    Spacer()
+                                    Text(question.outcome == nil ? "Pending" : question.outcome ?? false ? "Correct" : "Incorrect")
+                                }
+                            }
+                        }
+                        
+                    }
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button(action: { showingScores = false }) {
+                                Text("Dismiss")
                             }
                         }
                     }
+                    .presentationDetents([.medium])
+                    .presentationDragIndicator(.visible)
+                  
+                    
                 }
                 if loading {
                     LoadingSymbol()

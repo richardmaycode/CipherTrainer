@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     
-    
+    @State var selection: TabOption = .builder
     
     var body: some View {
-        AppTabView()
+        AppTabView(selection: $selection)
     }
 }
 
