@@ -23,6 +23,7 @@ struct QuadChiperQuestion: View {
                 ForEach(Array(options.enumerated()), id: \.offset) { index, answer in
                     
                     answerCell(number: answer, picked: index == selectedIndex ? true : false)
+                        .contentShape(Rectangle())
                         .onTapGesture {
                             if index == selectedIndex {
                                 selectedIndex = 100

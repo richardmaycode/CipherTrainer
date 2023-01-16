@@ -19,6 +19,17 @@ struct GameQuestion: Identifiable {
     let options: [Int]
     let answer: Int
     var outcome: Bool?
+    
+    var outcomeLabel: (title: String, image: String, color: Color) {
+        switch self.outcome {
+        case true:
+            return ("Correct", "checkmark.circle.fill", .green)
+        case false:
+            return ("Incorrect", "xmark.circle.fill", .red)
+        default:
+            return ("Pending", "minus.circle.fill", .gray)
+        }
+    }
 }
 
 
@@ -126,7 +137,9 @@ struct GameView: View {
                                 HStack {
                                     Text("Quesiton \(index + 1)")
                                     Spacer()
-                                    Text(question.outcome == nil ? "Pending" : question.outcome ?? false ? "Correct" : "Incorrect")
+                                    
+                                    Label(question.outcomeLabel.title, systemImage: question.outcomeLabel.image)
+                                        .foregroundColor(question.outcomeLabel.color)
                                 }
                             }
                         }
@@ -185,6 +198,7 @@ struct GameView: View {
             } else {
                 currentQuestionIndex += 1
             }
+            self.guess = nil
             changingQuestions = false
         }
     }

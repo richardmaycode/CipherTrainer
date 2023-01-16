@@ -19,12 +19,12 @@ struct SingleCipherQuestion: View {
             CipherShape(numbers: answer.digits())
                 .stroke(.black, style: StrokeStyle(lineWidth: 15, lineCap: .round, lineJoin: .round))
             
-                .frame(width: 200, height: 275)
+                .frame(width: 200, height: 250)
                 .background {
                     CipherShape(numbers: answer.digits())
                         .stroke(.gray, style: StrokeStyle(lineWidth: 15, lineCap: .round, lineJoin: .round))
                     
-                        .frame(width: 200, height: 275)
+                        .frame(width: 200, height: 250)
                         .offset(x: 3, y: 3)
                 }
                 .padding(40)
@@ -44,7 +44,14 @@ struct SingleCipherQuestion: View {
                     Text("\(option)")
                         .font(.system(.title, design: .rounded, weight: .heavy))
                         .frame(maxWidth: .infinity, minHeight: 50)
-                        
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            guess = option
+                        }
+                        .background {
+                            RoundedRectangle(cornerRadius: 60, style: .continuous)
+                                .fill(option == guess ? .teal : .clear)
+                        }
                         .background {
                             RoundedRectangle(cornerRadius: 60)
                             
@@ -55,11 +62,10 @@ struct SingleCipherQuestion: View {
                                         .stroke(.gray, style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
                                         .offset(x: 3, y: 3)
                                 }
+                                
                         }
                         .padding(.horizontal, 40)
-                        .onTapGesture {
-                            guess = option
-                        }
+                        
                 }
             }
             .padding(.top, 30)
