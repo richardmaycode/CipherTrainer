@@ -56,7 +56,7 @@ struct AppTabView: View {
                 }
                 .tag(TabOption.reference)
             
-            GameView()
+            GameGalleryView()
                 .tabItem {
                     Label(TabOption.game.label, systemImage: TabOption.game.icon)
                 }

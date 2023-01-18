@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93241FD8297740C900F61D50 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93241FD7297740C800F61D50 /* GameView.swift */; };
+		93241FDC29777C3700F61D50 /* CTGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93241FDB29777C3700F61D50 /* CTGame.swift */; };
 		932468E9296B601500B9CF30 /* CipherTrainerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932468E8296B601500B9CF30 /* CipherTrainerApp.swift */; };
 		932468EB296B601500B9CF30 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932468EA296B601500B9CF30 /* ContentView.swift */; };
 		932468ED296B601600B9CF30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932468EC296B601600B9CF30 /* Assets.xcassets */; };
@@ -19,7 +21,7 @@
 		93246909296CA49300B9CF30 /* ReferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93246908296CA49300B9CF30 /* ReferenceView.swift */; };
 		9324690C296CB64C00B9CF30 /* CTNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9324690B296CB64C00B9CF30 /* CTNumbers.swift */; };
 		9324690E296DCD2400B9CF30 /* CipherStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9324690D296DCD2400B9CF30 /* CipherStack.swift */; };
-		93246910296F0FCC00B9CF30 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9324690F296F0FCC00B9CF30 /* GameView.swift */; };
+		93246910296F0FCC00B9CF30 /* GameGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9324690F296F0FCC00B9CF30 /* GameGalleryView.swift */; };
 		93246912296F9CB600B9CF30 /* LoadingSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93246911296F9CB600B9CF30 /* LoadingSymbol.swift */; };
 		932469142970AA1E00B9CF30 /* MatchedGeoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932469132970AA1E00B9CF30 /* MatchedGeoTest.swift */; };
 		932469182970F40B00B9CF30 /* QuadChiperQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932469172970F40B00B9CF30 /* QuadChiperQuestion.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		93241FD7297740C800F61D50 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		93241FDB29777C3700F61D50 /* CTGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTGame.swift; sourceTree = "<group>"; };
 		932468E5296B601500B9CF30 /* CipherTrainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CipherTrainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		932468E8296B601500B9CF30 /* CipherTrainerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CipherTrainerApp.swift; sourceTree = "<group>"; };
 		932468EA296B601500B9CF30 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,7 +45,7 @@
 		93246908296CA49300B9CF30 /* ReferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceView.swift; sourceTree = "<group>"; };
 		9324690B296CB64C00B9CF30 /* CTNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTNumbers.swift; sourceTree = "<group>"; };
 		9324690D296DCD2400B9CF30 /* CipherStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CipherStack.swift; sourceTree = "<group>"; };
-		9324690F296F0FCC00B9CF30 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		9324690F296F0FCC00B9CF30 /* GameGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGalleryView.swift; sourceTree = "<group>"; };
 		93246911296F9CB600B9CF30 /* LoadingSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSymbol.swift; sourceTree = "<group>"; };
 		932469132970AA1E00B9CF30 /* MatchedGeoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedGeoTest.swift; sourceTree = "<group>"; };
 		932469172970F40B00B9CF30 /* QuadChiperQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadChiperQuestion.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 				932468EA296B601500B9CF30 /* ContentView.swift */,
 				932468EC296B601600B9CF30 /* Assets.xcassets */,
 				932468EE296B601600B9CF30 /* Preview Content */,
+				93241FDB29777C3700F61D50 /* CTGame.swift */,
 			);
 			path = CipherTrainer;
 			sourceTree = "<group>";
@@ -142,8 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				932469162970F3DA00B9CF30 /* QuestionViews */,
-				9324690F296F0FCC00B9CF30 /* GameView.swift */,
+				9324690F296F0FCC00B9CF30 /* GameGalleryView.swift */,
 				932469192970F43400B9CF30 /* KeyPadGrid.swift */,
+				93241FD7297740C800F61D50 /* GameView.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -232,14 +238,16 @@
 				93246912296F9CB600B9CF30 /* LoadingSymbol.swift in Sources */,
 				9324691A2970F43400B9CF30 /* KeyPadGrid.swift in Sources */,
 				9324690C296CB64C00B9CF30 /* CTNumbers.swift in Sources */,
+				93241FD8297740C900F61D50 /* GameView.swift in Sources */,
 				932468EB296B601500B9CF30 /* ContentView.swift in Sources */,
 				932468E9296B601500B9CF30 /* CipherTrainerApp.swift in Sources */,
-				93246910296F0FCC00B9CF30 /* GameView.swift in Sources */,
+				93246910296F0FCC00B9CF30 /* GameGalleryView.swift in Sources */,
 				932469182970F40B00B9CF30 /* QuadChiperQuestion.swift in Sources */,
 				9324690E296DCD2400B9CF30 /* CipherStack.swift in Sources */,
 				9324691C2971B98B00B9CF30 /* SingleCipherQuestion.swift in Sources */,
 				932469142970AA1E00B9CF30 /* MatchedGeoTest.swift in Sources */,
 				93246903296C7EC700B9CF30 /* String+Ext.swift in Sources */,
+				93241FDC29777C3700F61D50 /* CTGame.swift in Sources */,
 				93246907296CA07C00B9CF30 /* AppTabView.swift in Sources */,
 				93246905296CA01F00B9CF30 /* CipherBuilder.swift in Sources */,
 				93246901296C74F700B9CF30 /* Int+Ext.swift in Sources */,
